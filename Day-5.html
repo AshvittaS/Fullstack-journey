@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .Main{
+            height: 100vh;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            width: 100vw;
+            display: flex;
+            justify-content: center;       
+            align-items: center;            
+            position: relative;
+
+        }
+        .Sub1{
+           height: 60vh;
+           width: 35vw;
+           background-color: pink;
+           position: absolute;
+           left:55vw;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+            border-radius: 20px;
+            border-style: double;
+            border-width: 2px; 
+            border-color: white;
+        }
+        .Sub2{
+            height: 60vh;
+           width: 35vw;
+           background-color: blue;
+           position: absolute;
+           left:10vw;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           border-radius: 20px;
+        }
+        .Sub2 img{
+            height: 100%;
+            width: 100%;
+            border-radius: 20px;
+        }
+        .Sub1,.Sub2{
+            transition: left 0.6s ease-in-out, box-shadow 0.3s ease;
+        }
+        .Main:hover .Sub1{
+            left:10vw;
+        }
+        .Main:hover .Sub2{
+            left:55vw; 
+        }
+        .Sub1 form input{
+            width: 80%;
+            padding: 10px;
+            border-radius: 10px;
+            border-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="Main">
+        <div class="Sub2">
+           <img src="https://fragrancedealz.com/cdn/shop/articles/13_blog_banner.png?v=1740484770" alt="Perfume">
+        </div>
+         <div class="Sub1">
+            <form>
+                <h1>LOGIN</h1><br>
+                <input type="text" placeholder="Username"><br><br>
+                <input type="password" placeholder="Password"><br><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>

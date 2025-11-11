@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOHO</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            background: linear-gradient(to bottom, skyblue, #2d7891);
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            transition: all 0.5s ease-in-out;
+        }
+        .box1{
+            height: 40vh;
+            width: 20vw;
+            border-style: solid;
+            top: 25vh;
+            bottom: 30vh;
+            transform: translateY(-40px); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:red;
+            border-radius: 20px;
+            transition: transform 0.5s ease-in-out;
+
+        }
+        .box2{
+            height: 40vh;
+            width: 20vw;
+            border-style: solid;
+            top: 30vh;
+            bottom: 30vh;
+            transform: translateY(40px); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:green;
+            border-radius: 20px;
+            transition: transform 0.5s ease-in-out;
+
+        }
+         .box3{
+            height: 40vh;
+            width: 20vw;
+            border-style: solid;
+            top: 25vh;
+            bottom: 30vh;
+            transform: translateY(-40px); 
+            display: flex;
+            justify-content: center;
+            align-items: center ;
+            color:blue;
+            border-radius: 20px;
+            transition: transform 0.5s ease-in-out;
+
+        }
+         .box4{
+            height: 40vh;
+            width: 20vw;
+            border-style: solid;
+            top: 30vh;
+            bottom: 30vh;
+            transform: translateY(40px); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:yellow;
+            border-radius: 20px;
+            transition: transform 0.5s ease-in-out;
+
+        }
+        .container div p{
+            font-size: 30vh;
+            text-align: center;
+        }
+        
+        .container:hover .box1 { transform: translateY(40px); }
+        .container:hover .box2 { transform: translateY(-40px); }
+        .container:hover .box3 { transform: translateY(40px); }
+        .container:hover .box4 { transform: translateY(-40px); }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="box1">
+        <p>Z</p>
+    </div>
+    <div class="box2">
+        <p>O</p>
+    </div>
+    <div class="box3">
+        <p>H</p>
+    </div>
+    <div class="box4">
+        <p>O</p>
+    </div>
+    </div>  
+
+</body>
+</html>
