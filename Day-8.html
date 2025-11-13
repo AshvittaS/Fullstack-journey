@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1 id="Ques">Is javascript is hard?</h1>
+<button id="yes">yes</button>
+<button id="no">no</button>
+</body>
+<script>
+    document.getElementById("yes").onclick = function() {
+    document.getElementById("Ques").innerHTML = "You are correct!";
+    };
+    document.getElementById("no").onclick = function() {
+        alert("Actually, it is quite challenging for beginners.");
+    };
+</script>
+</html>
