@@ -31,6 +31,7 @@
         height:100vh;
         width:100vw;
         position: absolute;
+        transition: all 0.9s ease;
     }
     .Sub12 img{
         height:100%;
@@ -38,16 +39,17 @@
     }
     .Main1:hover .Sub12{
         top:10vh;
+        transition-delay: 0.02s;
     }
     .option{
-        position: absolute;
+        position: fixed;
         top:2vh;
         width:fit-content;
         color:black;
         text-align: center;
         font-size: 20px;
         right:5vw;
-        
+        z-index: 9999; 
 }
 .option th {
     padding: 0 25px; 
@@ -59,10 +61,22 @@
     font-size: 12vh;
     font-weight: bold;
     color: #800080;
-    opacity: 0;
 }
-.Main1:hover .bts-text {
+.bts-text span {
+    opacity: 0;
+    transition: all 0.9s ease-in-out;
+}
+.Main1:hover .bts-text span{
     opacity: 1;
+}
+.bts-text span:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.bts-text span:nth-child(2) {
+  transition-delay: 0.5s;
+}
+.bts-text span:nth-child(3) {
+  transition-delay: 0.9s;
 }
 .Main2{
     height:100vh;
@@ -82,33 +96,39 @@
     position: relative;
 }
 .Sub31{
-    height: 50vh;
+    height: 100vh;
     width: 50vw;
     background-color: green;
     position: absolute;
 }
 .Sub32{
     left:50vw;
-    height: 50vh;
+    height: 80vh;
     width: 50vw;
     background-color: red;
     position: absolute;
 }
 .Sub33{
-    top:50vh;
-    height: 50vh;
+    top:80vh;
+    height: 80vh;
     width: 50vw;
     background-color: blue;
     position: absolute;
 }
 .Sub34{
-    top:50vh;
+    top:80vh;
     left:50vw;
-    height: 50vh;
+    height: 80vh;
     width: 50vw;
     background-color: yellow;
     position: absolute;
 }
+.Box1 img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
 </style>
 <body>
     <div class="Main1">
@@ -129,23 +149,28 @@
                 </tr>
             </table>
         </div>
-        <div class="bts-text">BTS</div>
+        <div class="bts-text">
+                <span>B</span>
+                <span>T</span>
+                <span>S</span>
+
+        </div>
     </div>
     <div class="Main2">
         <video src="WhatsApp Video 2025-11-12 at 7.27.39 PM.mp4" autoplay muted></video>
     </div>
     <div class="Main3">
         <div class="Sub31 Box1">
-
+            <img src="https://m.media-amazon.com/images/I/41truIvsMxL.jpg" alt="I Purple You">
         </div>
-                <div class="Sub32 Box1">
-
+        <div class="Sub32 Box1">
+            <img src="https://m.media-amazon.com/images/I/31Jml+xtiWL.jpg" alt="BTS Logo">
         </div>
-                <div class="Sub33 Box1">
-
+        <div class="Sub33 Box1">
+            <img src="https://i.pinimg.com/474x/cb/26/23/cb2623bba96ef3b47d79467046bec481.jpg" alt="Bomb">
         </div>
-                <div class="Sub34 Box1">
-
+        <div class="Sub34 Box1">
+            <img src="https://ih1.redbubble.net/image.1123098851.6085/raf,360x360,075,t,fafafa:ca443f4786.u1.jpg" alt="Heart">
         </div>
     </div>
 </body>
