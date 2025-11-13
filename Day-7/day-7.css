@@ -2,6 +2,10 @@ body{
     margin: 0;
     padding: 0;    
 }
+a {
+  text-decoration: none;
+}
+
 .options{
     left:10vw;
     top:2vh;
@@ -101,10 +105,11 @@ body{
     padding: 20px;
     left: 7vw;
 }
-.Main2 img{
+.Background2 img{
     position: absolute;
-    width:100vw;
+    width:100%;
     height:100vh;
+    overflow: hidden;
     object-fit: cover;
 }
 .places-container{
@@ -129,3 +134,204 @@ body{
     background-color: rgba(255,255,255,0.9);
     height: 55vh;
 }
+.place-card img{
+    width: 100%;
+    height: 60%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.Main3{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+.top{
+    position:absolute;
+    left: 40vw;
+    color:black;
+    top:5vh;
+}
+.search-box{
+  position: absolute;
+  top: 15vh;
+  left: 35vw;
+  display: flex;
+  align-items: center;
+}
+.search{
+    padding: 10px 15px;
+  color: black;
+  width: 30vw;
+  height: 7vh;
+  border: 2px solid #333;
+  border-right: none; /* removes gap */
+  border-radius: 8px 0 0 8px; /* left corners */
+  outline: none;
+  font-size: 1rem;
+}
+.search-button {
+  padding: 10px;
+  font-size: 3vh;
+  border: 2px solid #333;
+  border-left: none; 
+  border-radius: 0 8px 8px 0; 
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.Main4{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+.gallery {
+    position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+    gap: 5vw;
+    top: 30vh;
+    left: 3vw;
+    right: 2vw;
+}
+.gallery img {
+  width: 20vw;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.lightbox {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.lightbox:target {
+  display: flex;
+}
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  animation: zoomIn 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: white;
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover {
+  color: #ff4c4c;
+}
+.faq-section {
+background: linear-gradient(to right, #00c6ff, #072344);
+  padding: 5vh 10vw;
+  text-align: center;
+}
+
+.faq-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 4vh;
+}
+
+.faq {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+details {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+details:hover {
+  background-color: #f0f0f0;
+}
+
+summary {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+details p {
+  margin-top: 0.5rem;
+  color: #333;
+}
+.contact-section {
+background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 6vh 10vw;
+  text-align: center;
+}
+
+.contact-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2vh;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto 4vh auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.contact-form button:hover {
+  background-color: #005fa3;
+}
+
+.contact-info {
+  margin-top: 3vh;
+  font-size: 1.1rem;
+  color: #333;
+}
+
