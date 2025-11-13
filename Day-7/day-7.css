@@ -1,0 +1,131 @@
+body{
+    margin: 0;
+    padding: 0;    
+}
+.options{
+    left:10vw;
+    top:2vh;
+    position:absolute;
+    font-size: large ;
+    color: #FFFF;
+}
+.head{
+    position: relative;
+    z-index: 9999; 
+}
+.options th{
+    padding-right: 20px;
+    padding-top:20px ;
+    padding-left:20px ;
+}
+.select{
+    cursor: pointer;
+}
+.dropdown{
+    position: absolute;
+    font-size: 10px;
+    padding-top:3.5px ;
+    padding-left: 5px;
+    padding-right:5px ;
+}
+.logo{
+    width:4vw;
+    height:7vh;
+    border-radius:5px;
+    position:absolute;
+    left:5vw;
+    top:3vh;
+    right:0px;
+}
+.logo img{
+    width:100%;
+    height:100%;
+    border-radius:5px;
+}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    border-radius: 8px;
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+  }
+    .dropdown-content a:hover {
+        background-color: #968e8e;
+    }
+    .select:hover .dropdown-content {
+        display: block;
+    }
+    .select:hover .dropdown{
+        rotate: 180deg;
+        transition: rotate 0.3s ease;
+        padding-top: 0px;
+    }
+.Main1{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+.Background{
+    position: absolute;
+}
+.Background img{
+    width:100vw;
+    height:100vh;
+    object-fit: cover;
+    filter: brightness(80%);
+}
+.Welcome-greetings{
+    position:absolute;
+    top:30vh;
+    left:10vw;
+    color:black;
+}
+.Main2{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+.content{
+    position: absolute;
+    text-align: center;
+    max-width: 700vw;
+    margin: 20px auto;      
+    padding: 20px;
+    left: 7vw;
+}
+.Main2 img{
+    position: absolute;
+    width:100vw;
+    height:100vh;
+    object-fit: cover;
+}
+.places-container{
+    position: absolute;
+    gap:1vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    top: 35vh;
+    bottom:40vw;
+    left: 0vw;
+    right:0vw;
+
+}
+.place-card {
+    border: 2px solid #333;
+    padding: 15px;
+    border-radius: 10px;
+    width: 20vw;
+    text-align: center;
+    background-color: rgba(255,255,255,0.9);
+    height: 55vh;
+}
