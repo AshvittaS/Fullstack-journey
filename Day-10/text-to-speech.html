@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-speech</title>
+</head>
+<style>
+    body{
+        background:linear-gradient(to right,rgb(94, 212, 216),rgb(141, 134, 172));
+    }
+    .text{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        width: 40vw;;
+        background-color: thistle;
+        top: 50%;
+        left: 30%;
+        border: 3px solid purple;
+        border-radius: 10%;
+    }
+    .text textarea{
+        position: absolute;
+        top:10vh;
+        height: 20vh;
+        width: 25vw;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        padding: 10px;
+        resize: none;
+    }
+    .speaker{
+        bottom:10vh;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        cursor: pointer;
+        display: block;
+    }
+    .speaker:hover{
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+    }
+    .text-glow{
+        text-shadow: 0 0  15px purple;
+        transition: all 0.3s ease-in-out;
+    }
+    .img-glow{
+        filter:drop-shadow(0 0 10px purple);
+        transition: all 0.3s ease-in-out;
+    }
+    .loader{
+        bottom:10vh;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        animation: spin 1s linear infinite;
+        display: none;
+    }
+    .loader img{
+        height: 100%;
+        width: 100%;
+    }
+    @keyframes spin{
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+.bounce {
+    animation: bounce-effect 0.4s ease;
+}
+@keyframes bounce-effect {
+    0%   { transform: scale(1); }
+    30%  { transform: scale(0.85); }
+    50%  { transform: scale(1.1); }
+    70%  { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+.fade-in {
+    animation: fadeInEffect 1s ease-in-out;
+}
+@keyframes fadeInEffect {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.progress{
+    position: absolute;
+    height: 10px;
+    width: 20vw;
+    bottom:6vh;
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 20px;
+}
+.volumeBox {
+    position: absolute;
+    bottom: 20vh;
+    display: flex;
+    gap: 6px;
+}
+
+.bar {
+    width: 6px;
+    height: 10px;
+    background: purple;
+    border-radius: 10px;
+    animation: none;
+    transition: height 0.1s ease; 
+    
+}
+
+@keyframes volumeAnim {
+    0%   { height: 5px; }
+    50%  { height: 20px; }
+    100% { height: 8px; }
+}
+
+</style>
+<body>
+    <h1 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:rgb(62, 12, 65)">
+        Text to Speech Convertor Using API
+    </h1>
+    <div class="text">
+        <textarea id="input" placeholder="Enter your text..."></textarea>
+        <img id="speaker" class="speaker" onclick="Speak() ; addGlow(); bounceEffect(); fadeInText(); progressbar();" src="https://cdn-icons-png.flaticon.com/512/10268/10268948.png" alt="Speaker">
+        <div class="loader" id="spinner"><img src="https://png.pngtree.com/png-vector/20230509/ourmid/pngtree-loading-icon-vector-png-image_7090518.png"></div>
+        <div class="progress" id="progressbar" >
+                <div id="progressFill" style="height:100%; width:0%; background:purple; border-radius:20px;"></div>
+        </div>
+            <div class="volumeBox">
+    <div class="bar b1"></div>
+    <div class="bar b2"></div>
+    <div class="bar b3"></div>
+    <div class="bar b4"></div>
+    <div class="bar b5"></div>
+</div>
+<div style="position: absolute; top: 5vh; left: 55vw; transform: translateX(-50%); background: #eee; padding: 10px; border-radius: 10px;">
+  <label>Volume: <span id="volValue"></span></label>
+  <input type="range" id="volume" min="0" max="1" step="0.05" value="1"><br>
+  <label>Pitch: <span id="pitchValue"></span></label>
+  <input type="range" id="pitch" min="0" max="2" step="0.1" value="1"><br>
+  <label>Rate: <span id="rateValue"></span></label>
+  <input type="range" id="rate" min="0.1" max="3" step="0.1" value="1">
+</div>
+
+    </div>
+
+</body>
+<script>
+    function Speak(){
+        let speakerImg = document.getElementById("speaker");
+        let fill = document.getElementById("progressFill");
+        speakerImg.style.display = "none"; 
+        let speaker = new SpeechSynthesisUtterance();
+        speaker.text = document.getElementById("input").value.trim();
+        if(speaker.text === ""){
+            alert("Please enter some text to speak.");
+            return;
+        }   
+        speaker.volume = parseFloat(document.getElementById("volume").value);
+        speaker.pitch  = parseFloat(document.getElementById("pitch").value);
+        speaker.rate   = parseFloat(document.getElementById("rate").value);
+
+        startVolume();
+        let text = document.getElementById("input").value.trim();
+        let words = text.split(" ");
+        let totalWords = words.length;
+        fill.style.width = "0%";
+        const spinner=document.getElementById("spinner");
+        spinner.style.display = "block";
+        speaker.onboundary = (event) => {
+        if (event.name === "word") {
+            let percent = Math.min((event.charIndex / speaker.text.length) * 100, 100);
+            fill.style.width = percent+22 + "%";
+        }
+    
+    };       
+        speaker.onend = () => {
+            spinner.style.display = "none";
+            speakerImg.style.display = "block"; 
+            fill.style.width = "100%";
+            stopVolume();
+        };
+        window.speechSynthesis.speak(speaker);
+    }
+    function addGlow(){
+        const text=document.getElementById("input");
+        const img=document.getElementById("speaker");
+        text.classList.add("text-glow");
+        img.classList.add("img-glow");
+        setTimeout(() => {
+            text.classList.remove("text-glow");
+            img.classList.remove("img-glow");
+        }, 1000);
+}
+    function bounceEffect(){
+        const img=document.getElementById("speaker");
+        img.classList.add("bounce");
+        setTimeout(() => {
+            img.classList.remove("bounce");
+        }, 400);
+    }
+    function fadeInText() {
+    const text = document.getElementById("input");
+
+    text.classList.remove("fade-in");   
+    void text.offsetWidth;             
+    text.classList.add("fade-in");      
+}
+let volumeBars = document.querySelectorAll(".bar");
+let volumeInterval;
+
+function startVolume() {
+    volumeInterval = setInterval(() => {
+        volumeBars.forEach(bar => {
+            bar.style.height = (5 + Math.random() * 25) + "px";
+        });
+    }, 150);
+}
+
+function stopVolume() {
+    clearInterval(volumeInterval);
+    volumeBars.forEach(bar => {
+        bar.style.height = "5px";
+    });
+}
+
+</script>
+</html>
