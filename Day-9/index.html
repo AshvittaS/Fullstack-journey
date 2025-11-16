@@ -1,32 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .main1{
-            height:10vh;
-            width:100vw;
-            background-color: lightblue;
-        }
-        .main2{
-            height:80vh;
-            width:100vw;
-            background-color: red;
-        }
-        .main3{
-            height:10vh;
-            width:100vw;
-            background-color: lightblue;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart Demo</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .product { margin-bottom: 10px; }
+    .cart-item { margin-bottom: 5px; }
+    button { margin-left: 5px; cursor: pointer; }
+    #cart { border: 1px solid #ccc; padding: 10px; width: 300px; margin-top: 20px; }
+</style>
 </head>
 <body>
-    <div class="main1" >
-        <h1>Ashvitta</h1>
-    </div>
-    <div class="main2" ></div>
-    <div class="main3" ></div>
+
+<h2>Products</h2>
+<div class="product">
+    <span>Apple - $1</span>
+    <button onclick="addToCart('Apple', 1)">Add to Cart</button>
+</div>
+<div class="product">
+    <span>Banana - $0.5</span>
+    <button onclick="addToCart('Banana', 0.5)">Add to Cart</button>
+</div>
+<div class="product">
+    <span>Orange - $0.8</span>
+    <button onclick="addToCart('Orange', 0.8)">Add to Cart</button>
+</div>
+
+<h2>Cart</h2>
+<div id="cart">
+    <p>No items in cart.</p>
+</div>
+
+<script>
+let cart = [];
+
+function addToCart(name, price) {
+    cart.push({name, price});
+    renderCart();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    renderCart();
+}
+
+function renderCart() {
+    const cartDiv = document.getElementById('cart');
+    cartDiv.innerHTML = ''; // clear cart display
+
+    if(cart.length === 0) {
+        cartDiv.innerHTML = '<p>No items in cart.</p>';
+        return;
+    }
+
+    cart.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `${item.name} - $${item.price.toFixed(2)} 
+            <button onclick="removeFromCart(${index})">Remove</button>`;
+        cartDiv.appendChild(div);
+    });
+
+    // show total price
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const totalDiv = document.createElement('div');
+    totalDiv.style.marginTop = '10px';
+    totalDiv.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+    cartDiv.appendChild(totalDiv);
+}
+</script>
+
 </body>
 </html>
