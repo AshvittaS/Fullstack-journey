@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+<style>
+    .search{
+        position: relative;
+        border-radius: 20px;
+        border: 1px solid black;
+        padding-left: 2em;
+        box-sizing: border-box;
+}
+        .existingNotes {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .noteCard {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.9s ease;
+        }
+
+        .noteCard h3 {
+            margin: 0 0 5px 0;
+        }
+
+        .noteCard p {
+            margin: 2px 0;
+        }
+
+        .noteCard .status {
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+        /*.noteCard:hover{
+            animation: trans 2s ease-in infinite;
+        }
+        @keyframes trans{
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            33% {
+                transform: rotateX(180deg) rotateY(0deg) rotateZ(0deg);
+            }
+            67% {
+                transform: rotateX(180deg) rotateY(180deg) rotateZ(0deg);
+            }
+            100% {
+                transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+            }
+        }*/
+        .noteCard:hover{
+            transform: scale(2);
+            background-color: aliceblue;
+        }
+
+</style>
+<body>
+    <div id="navbar"></div>
+    <div class="todo">
+    <input style="max-width: 40em; width: 100%; height: 3em;" class="search" type="search" id="searchBar" placeholder="Search Your notes....">
+    </div>
+    <div class="existingNotes" id="existingNotes"></div>
+
+</body>
+<script>
+fetch("layout.html")
+  .then(res => res.text())
+  .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+  });
+    function displayNotes(filter="") {
+        let existing = JSON.parse(localStorage.getItem("notes")) || [];
+        let container = document.getElementById("existingNotes");
+        container.innerHTML = "";
+
+        existing
+          .filter(note => 
+            note.Title.toLowerCase().includes(filter.toLowerCase()) ||
+            note.Subject.toLowerCase().includes(filter.toLowerCase()) ||
+            note.Description.toLowerCase().includes(filter.toLowerCase())
+          )
+          .forEach(note => {
+              let card = document.createElement("div");
+              card.className = "noteCard";
+              card.innerHTML = `
+                  <h3>${note.Title}</h3>
+                  <p><strong>Subject:</strong> ${note.Subject}</p>
+                  <p><strong>Description:</strong> ${note.Description}</p>
+                  <p><strong>Date:</strong> ${note.Date}</p>
+                  <p class="status"><strong>Status:</strong> ${note.Status}</p>
+              `;
+              container.appendChild(card);
+          });
+    }
+    displayNotes();
+
+    document.getElementById("searchBar").addEventListener("input", (e) => {
+        displayNotes(e.target.value);
+    });
+</script>
+
+</html>

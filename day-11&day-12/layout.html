@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: gold;
+    }
+    .todo{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+
+    }
+    .navbar{
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+
+    }
+    .menu-container{
+        display: relative;
+    }
+    .menu-icon{
+        width: 50px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    .menu-icon img{
+        width: 100%;
+    }
+    .menu-icon:hover{
+        transform: rotate(180deg);
+    }
+    .title{
+        color: green;
+        font-size: 5em; 
+        padding-left: 0.5em;
+    }
+    .dropdown{
+        position: absolute;
+        display: none;
+        z-index: 999;
+    }
+    .dropdown a{
+        display: block;
+        color: black;
+        padding: 18px;
+        text-decoration: none;
+        border: 1px solid black;
+        background: rgba(255, 255, 255, 0.2);  
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    .menu-container:hover .dropdown{
+        display: block;
+    }
+
+</style>
+<body>
+    <div class="navbar">
+        <div class="menu-container">
+            <img class="menu-icon" src="https://static.thenounproject.com/png/1123247-200.png" alt="menu icon">
+            <div class="dropdown">
+                <a href="new.html">Add</a>
+                <a href="delete.html">Delete</a>
+                <a href="todo.html">Home</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    <h1 class="title">TODO</h1>
+    </div>
+    
+</body>
+</html>

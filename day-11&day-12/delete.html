@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .delete{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap:10px;
+        
+    }
+    .Card{
+        width: fit-content;
+        height: fit-content;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 15px 20px;
+        border-radius: 10px;
+        animation: scroll linear ;
+        animation-timeline: view();
+        animation-range:entry 0% cover 30% ;
+    }
+    @keyframes scroll{
+        from{
+            opacity: 0;
+            transform: translateX(-150px);
+        }
+        to{
+            opacity:1;
+            scale:1;
+            transform: translateX(0px);
+
+        }
+    }
+    .deleteIcon{
+        width: 30px;
+        height: 30px;
+        padding-top: auto;
+        cursor: pointer;
+    }
+    .deleteIcon img{
+        width: 100%;
+    }
+</style>
+<body>
+    <div id="navbar"></div>
+    <div class="delete" id="delete">
+    
+    </div>
+</body>
+<script>
+    fetch("layout.html").then(res=>res.text()).then(data=>{document.getElementById("navbar").innerHTML=data});
+    function displaynotes(filter=""){
+        let exist=JSON.parse(localStorage.getItem("notes"))||[];
+        let container=document.getElementById("delete");
+        container.innerHTML="";
+        exist.filter(note=>
+            note.Title.toLowerCase().includes(filter.toLowerCase()) ||
+            note.Subject.toLowerCase().includes(filter.toLowerCase())||
+            note.Description.toLowerCase().includes(filter.toLowerCase())
+        )
+        .forEach((note,index)=>
+            {
+                let card=document.createElement("div");
+                card.className="Card";
+                card.innerHTML=`
+                <img class="deleteIcon" src="https://staging.svgrepo.com/show/79440/delete-button.svg" alt="delete">
+                                  <h3>${note.Title}</h3>
+                  <p><strong>Subject:</strong> ${note.Subject}</p>
+                  <p><strong>Description:</strong> ${note.Description}</p>
+                  <p><strong>Date:</strong> ${note.Date}</p>
+                  <p class="status"><strong>Status:</strong> ${note.Status}</p>
+                `;
+                card.querySelector(".deleteIcon").addEventListener("click",()=>{
+                    exist.splice(index,1);
+                    localStorage.setItem("notes",JSON.stringify(exist));
+                    displaynotes(filter);
+                })
+                container.appendChild(card);
+            }
+        );
+    }
+    displaynotes();
+
+</script>
+</html>

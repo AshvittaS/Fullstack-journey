@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD Note</title>
+</head>
+<style>
+    .box{
+        position: relative;
+        height: 50vh;
+        width: 50vw;
+        background: rgba(255, 255, 255, 0.2);  
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        left: 30vw;
+        align-items: center;
+        padding: 20px;
+    }
+    .data{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap:10px;
+        width: 100%;
+        max-width: 500px;
+}
+    .data label{
+        width:100px;
+    }
+    .data input[type="text"],
+    .data input[type="date"] {
+         flex: 1;
+         padding: 10px;
+         border-radius: 5px;
+         border: 1px solid #ccc;
+
+        }
+    .Submit{
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding-top:auto;
+        padding-right: 10vw;
+    }
+    .Submit button{
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid white;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.2);  
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+     
+    }
+
+</style>
+<body>
+    <div id="navbar"></div>
+    <form>
+            <div class="box">
+                <h1>Add</h1>
+            <div class="data">
+                <label>Title:</label>    <input type="text" id="Title" placeholder="Enter title">
+            </div>
+            <div class="data">
+                <label>Subject:</label> <input type="text" id="Subject" placeholder="Enter subject">
+            </div>
+            <div class="data">
+                <label>Description: </label><input type="text" id="Describe" placeholder="Enter content">
+            </div>
+            <div class="data">
+                <label>Date:</label> <input id="date" type="date">
+            </div>
+            <div class="data">
+                <label>Status:</label> 
+                <label>
+                    <input type="radio" name="status" id="StatusComplete" value="complete">Complete
+                </label>
+        <label>
+            <input type="radio" name="status" id="StatusIncomplete"  value="incomplete"> Incomplete
+        </label>
+        <label>
+            <input type="radio" name="status" id="StatusOngoing" value="ongoing"> Ongoing
+        </label>
+        </div>
+        <div class="Submit">
+             <button onclick="AddItems()">Submit</button>
+        </div>
+        </div>
+    </form>
+</body>
+<script>
+fetch("layout.html")
+  .then(res => res.text())
+  .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+  });
+  function AddItems(){
+    event.preventDefault(); 
+    let title=document.getElementById("Title").value;
+    let sub=document.getElementById("Subject").value;
+    let Des=document.getElementById("Describe").value;
+    let date=document.getElementById("date").value;
+    let status = document.querySelector('input[name="status"]:checked');
+    let statusValue = status ? status.value : null; 
+    let note={
+        "Title":title,
+        "Subject":sub,
+        "Description":Des,
+        "Date":date,
+        "Status":statusValue
+    };
+    alert("Note is added");
+    let existing= JSON.parse(localStorage.getItem("notes"))||[];
+    existing.push(note);
+    localStorage.setItem("notes",JSON.stringify(existing));
+    document.getElementById("Title").value="";
+    document.getElementById("Subject").value="";
+    document.getElementById("Describe").value="";
+    document.getElementById("date").value="";
+    let radios = document.querySelectorAll('input[name="status"]');
+    radios.forEach(r => r.checked = false);
+  }
+</script>
+</html>
