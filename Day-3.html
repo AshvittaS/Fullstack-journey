@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Enhanced Webpage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #e0e0e0;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    section {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Enhanced Website</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>About Me</h2>
+    <p>This is a more advanced version of my webpage with styling and interactivity.</p>
+    <button onclick="showMessage()">Click Me!</button>
+    <p id="message"></p>
+  </section>
+
+  <script>
+    function showMessage() {
+      document.getElementById('message').textContent = "Thanks for clicking!";
+    }
+  </script>
+</body>
+</html>
