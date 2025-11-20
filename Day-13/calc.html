@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5vh;
+        background-image: url("https://static.vecteezy.com/system/resources/previews/006/899/324/large_2x/the-concept-of-water-drops-on-a-white-background-free-photo.jpg");
+        background-size: cover;      
+        background-repeat: no-repeat; 
+        background-position: center;  
+    }
+    .container{
+        width: 23vw;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 50px;
+    }
+    .display{
+        min-height: 30vh;
+        width: 100%;
+        position: relative;
+        padding: 2vw;
+        height: 23vh;
+        background-color: rgb(252, 253, 254);
+        border-radius: 50px 50px 0 0;
+        border: 1px solid black;
+    }
+    .buttons{
+        position: relative;
+        width: 100%;
+        padding: 2vw;
+        height: 55vh;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);    
+        border-radius: 0 0 50px 50px;
+        border: 1px solid black;
+
+    }
+    .buttons button{
+        padding: 1.5rem;
+        margin: 0.2rem;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+       height: 60px;
+        width: 60px;
+        border-radius: 50%;
+}
+    .operator{
+        background-color: pink;
+
+}
+    .number{
+        background-color: rgb(53, 178, 212);
+    }
+
+    #equal{
+        height: 10em;
+        border-radius: 20px;
+    }
+    .text{
+    
+        right: 1em;
+        bottom:0;
+        position: absolute;
+        font-size: xx-large;
+    }
+    .operator:hover{
+        background-color: palevioletred;
+    }
+    .number:hover{
+        background-color:rgb(31, 125, 151) ;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="display">
+            <div class="text"></div>
+        </div>
+        <div class="buttons">
+            <table>
+                <tr>
+                    <td><button class="operator" id="clear">C</button></td>
+                    <td><button class="operator" id="/">/</button></td>
+                    <td><button class="operator" id="*">*</button></td>
+                    <td><button class="operator" id="backspace"><</button></td>
+                </tr>
+                <tr>
+                    <td><button class="number" id="7">7</button></td>
+                    <td><button class="number" id="8">8</button></td>
+                    <td><button class="number" id="9">9</button></td>
+                    <td><button class="operator" id="sub">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="number" id="4">4</button></td>
+                    <td><button class="number" id="5">5</button></td>
+                    <td><button class="number" id="6">6</button></td>
+                    <td><button class="operator" id="add">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="number" id="1">1</button></td>
+                    <td><button class="number" id="2">2</button></td>
+                    <td><button class="number" id="3">3</button></td>
+                    <td rowspan="2"><button class="operator" id="equal">=</button></td>
+                </tr>
+                <tr>
+                    <td><button class="operator" id="(">(</button></td>
+                    <td><button class="number" id="0">0</button></td>
+                    <td><button class="operator" id=")">)</button></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <script>
+        let display=document.querySelector(".text");
+        let selected=document.querySelectorAll("button");
+        let express="";
+        selected.forEach(btn=>{
+            btn.addEventListener("click",()=>
+                {
+                    let value=btn.innerText;
+                    if(value==="C") {
+                        express="";
+                        display.innerHTML="";
+                    }
+                    else if(value==="<"){
+                        express=express.slice(0,-1);
+                        display.innerHTML=express||"0";
+                    }
+                    else if(value==="="){
+                    try {
+                        express = eval(express).toString();
+                        display.innerText = express;
+                     } catch {
+                        display.innerText = "Error";
+                        express = "";
+                         } 
+                    }
+                    else {
+                             express += value;
+                             display.innerText = express;
+                    }
+                });
+        });
+    </script>
+</body>
+</html>
