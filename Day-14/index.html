@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100vh; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        height: 40vh;
+        width: 30vw;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 30px;
+        padding-left: 0px;       
+    }
+    .container.grow{
+        height: 60vh;
+    }
+
+</style>
+<body>
+    <div class="container">
+            <h2>QR Code Generate</h2>
+            <input type="text" id="text" placeholder="Enter url.."><br>
+            <button onclick="GenerateQR()">Generate QR code</button>
+            <br>
+            <div id="qr"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        function GenerateQR(){
+            const textt=document.getElementById("text").value;
+            const Qr=document.getElementById("qr");
+            Qr.innerHTML="";
+            if(textt.trim() !==""){
+                document.querySelector(".container").classList.add("grow");    
+                new QRCode(Qr,{text:textt, width: 150,height:150});
+            }
+        }
+    </script>
+</body>
+</html>

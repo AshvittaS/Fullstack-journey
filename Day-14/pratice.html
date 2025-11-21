@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class idcard{
+        constructor(Name,Age,DOB){
+            this.name=Name;
+            this.age=Age;
+            this.dob=DOB;
+        }
+        display(){
+            document.write(`My name is ${this.name},my age ${this.age}and dob is ${this.dob} `);
+        }
+    }
+    let AshId=new idcard("Ash",30,"12/02/2000");
+    AshId.display();
+</script>
+</html>
