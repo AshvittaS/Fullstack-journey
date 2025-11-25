@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Google Translate Widget Demo</title>
+        <style>
+            :root{--bg:#0f1724;--card:#07182E;--accent:#3D6AFF;color-scheme:light}
+            body {
+                font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+                    "Helvetica Neue", Arial;
+                background: linear-gradient(180deg,#071428 0%, #07182E 100%);
+                color: #e6edf3;
+                min-height: 100vh;
+                margin: 0;
+                display: grid;
+                place-items: center;
+                padding: 40px;
+            }
+            .card {
+                width: min(1000px, 92vw);
+                background: rgba(255,255,255,0.04);
+                border-radius: 12px;
+                padding: 28px;
+                box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+            }
+            h1{margin:0 0 12px 0;font-size:20px}
+            p.lead{margin:0 0 18px 0;color:#cfe8ff}
+            #google_translate_element{margin-bottom:14px}
+            .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+            .btn{background:var(--accent);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer}
+            .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.08)}
+            pre{background:rgba(0,0,0,0.2);padding:12px;border-radius:8px;overflow:auto}
+            footer{margin-top:18px;font-size:13px;color:#9fb7d9}
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <h1>Google Translate Widget — Demo</h1>
+            <p class="lead">This page shows the free Google Website Translator widget (client-side). Use the dropdown
+                to translate the page into the languages listed. You can also use the quick buttons below.</p>
+
+            <!-- Google Translate dropdown will render here -->
+            <div id="google_translate_element"></div>
+
+            <div class="controls">
+                <button class="btn" onclick="translateTo('hi')">Translate → Hindi</button>
+                <button class="btn" onclick="translateTo('ta')">Translate → Tamil</button>
+                <button class="btn" onclick="translateTo('es')">Translate → Spanish</button>
+                <button class="btn ghost" onclick="resetTranslate()">Reset / Original (English)</button>
+            </div>
+
+            <article>
+                <h2>Sample content</h2>
+                <p>
+                    Welcome to this demo. The Google Translate widget will translate this page's content into the
+                    language you select. This widget is a client-side convenience and not the Cloud Translation API.
+                </p>
+                <p>
+                    Note: The free widget script is provided by Google and requires network access to
+                    <code>translate.google.com</code>. Some environments or ad-blockers may prevent it from loading.
+                </p>
+                <h3>Paragraphs to translate</h3>
+                <p>
+                    This example contains multiple paragraphs, headings, and inline elements so you can verify
+                    how the translation appears across different parts of the page.
+                </p>
+                <p>Try the buttons above or pick a language from the dropdown.</p>
+            </article>
+
+            <footer>
+                <strong>Notes:</strong> The Google Website Translator widget is different from the
+                paid Cloud Translation API. The widget translates the visible page only. For production or
+                server-side translations, use the Cloud Translation API (requires billing & API key).
+            </footer>
+        </div>
+
+        <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,ta,hi,fr,de,ja,es,zh-CN',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    },
+                    'google_translate_element'
+                );
+            }
+
+            // Helper to set the widget language programmatically
+            function translateTo(lang) {
+                // The widget injects a select element with class 'goog-te-combo'
+                const combo = document.querySelector('.goog-te-combo');
+                if (combo) {
+                    combo.value = lang;
+                    combo.dispatchEvent(new Event('change'));
+                } else {
+                    alert('Translator not ready yet. Wait a moment and retry.');
+                }
+            }
+
+            // Reset by selecting English or reloading the page
+            function resetTranslate() {
+                const combo = document.querySelector('.goog-te-combo');
+                if (combo) {
+                    combo.value = 'en';
+                    combo.dispatchEvent(new Event('change'));
+                } else {
+                    location.reload();
+                }
+            }
+        </script>
+
+        <!-- Google Translate widget (free website widget) -->
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </body>
+</html>
