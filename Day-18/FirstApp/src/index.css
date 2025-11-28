@@ -1,0 +1,13 @@
+.card{
+  background-color: beige;
+  max-width: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: sans-serif;
+  text-align: center;
+  display: inline-block;
+  margin: 20px;
+}
+.card img{
+  width: 180px;
+}
