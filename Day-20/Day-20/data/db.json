@@ -1,0 +1,124 @@
+{
+  "posts": [
+    {
+      "id": 101,
+      "title": "My First Post",
+      "content": "This is my very first post on this platform. Excited to begin this journey!",
+      "created_at": "2024-01-01"
+    },
+    {
+      "id": 102,
+      "title": "A Day in the Life",
+      "content": "Woke up early, coded for 4 hours, and ended the day with some Netflix. Productive!",
+      "created_at": "2024-01-03"
+    },
+    {
+      "id": 103,
+      "title": "Tech Trends 2024",
+      "content": "AI, robotics, and blockchain continue to revolutionize industries worldwide.",
+      "created_at": "2024-01-05"
+    },
+    {
+      "id": 104,
+      "title": "Best Coding Practices",
+      "content": "Always write clean code, refactor regularly, and avoid unnecessary complexity.",
+      "created_at": "2024-01-08"
+    },
+    {
+      "id": 105,
+      "title": "Why I Love JavaScript",
+      "content": "JavaScript lets you build anything — apps, servers, websites, games. It's truly amazing!",
+      "created_at": "2024-01-10"
+    },
+    {
+      "id": 106,
+      "title": "Learning React",
+      "content": "JSX, components, props, hooks — React is fun once you understand the basics.",
+      "created_at": "2024-01-12"
+    },
+    {
+      "id": 107,
+      "title": "Frontend vs Backend",
+      "content": "Both are important! Frontend = look & feel. Backend = logic & data.",
+      "created_at": "2024-01-14"
+    },
+    {
+      "id": 108,
+      "title": "My Coding Routine",
+      "content": "I practice coding 2 hours every day. Consistency is the key to improvement.",
+      "created_at": "2024-01-16"
+    },
+    {
+      "id": 109,
+      "title": "Importance of APIs",
+      "content": "APIs connect apps and services, making modern software incredibly flexible.",
+      "created_at": "2024-01-18"
+    },
+    {
+      "id": 110,
+      "title": "Introduction to Databases",
+      "content": "SQL, NoSQL — each has its strengths. Databases store the heart of any application.",
+      "created_at": "2024-01-20"
+    },
+    {
+      "id": 111,
+      "title": "My UI/UX Journey",
+      "content": "Designing intuitive and clean interfaces makes apps more user friendly.",
+      "created_at": "2024-01-22"
+    },
+    {
+      "id": 112,
+      "title": "Debugging Tips",
+      "content": "Break the problem, use console logs, and test small pieces of logic.",
+      "created_at": "2024-01-24"
+    },
+    {
+      "id": 113,
+      "title": "Career in Tech",
+      "content": "The tech field is full of opportunities — web dev, ML, cybersecurity, cloud!",
+      "created_at": "2024-01-26"
+    },
+    {
+      "id": 114,
+      "title": "How I Stay Motivated",
+      "content": "Setting small goals daily helps me stay consistent and focused.",
+      "created_at": "2024-01-28"
+    },
+    {
+      "id": 115,
+      "title": "Learning Python",
+      "content": "Python is clean, powerful, and great for automation, ML, and backend.",
+      "created_at": "2024-01-30"
+    },
+    {
+      "id": 116,
+      "title": "Cloud Computing Basics",
+      "content": "AWS, Azure, and GCP changed how companies build and scale applications.",
+      "created_at": "2024-02-01"
+    },
+    {
+      "id": 117,
+      "title": "What is DevOps?",
+      "content": "DevOps is all about faster development, automation, and smooth deployments.",
+      "created_at": "2024-02-03"
+    },
+    {
+      "id": 118,
+      "title": "Handling Errors in JavaScript",
+      "content": "Try-catch, custom error handling, and debugging tools help write stable code.",
+      "created_at": "2024-02-05"
+    },
+    {
+      "id": 119,
+      "title": "Roadmap to Full Stack Developer",
+      "content": "HTML → CSS → JS → React → Node → DB. Follow this path consistently.",
+      "created_at": "2024-02-07"
+    },
+    {
+      "id": 120,
+      "title": "My 2024 Tech Goals",
+      "content": "Learn React deeply, contribute to open source, and build 10+ real projects.",
+      "created_at": "2024-02-10"
+    }
+  ]
+}
