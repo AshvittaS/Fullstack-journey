@@ -1,0 +1,18 @@
+.anime-card{
+  width: 180px;
+  margin: 10px;
+  text-align: center;
+}
+
+.anime-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.anime-card:hover{
+  animation: scaleHover 0.5s ease forwards;
+}
+@keyframes scaleHover {
+        from { transform: scale(0.8); }
+        to { transform: scale(1); }
+
+}

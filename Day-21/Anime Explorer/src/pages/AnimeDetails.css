@@ -1,0 +1,95 @@
+/* Anime details page styles */
+.anime-details {
+	padding: 24px;
+	max-width: 1100px;
+	margin: 0 auto;
+	color: #f5ebeb;
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.anime-details a {
+	display: inline-block;
+	margin-bottom: 16px;
+	color: #080808;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.back-btn {
+	display: inline-block;
+	margin-bottom: 16px;
+	background: transparent;
+	border: none;
+	color: #080808;
+	font-weight: 700;
+	cursor: pointer;
+	padding: 6px 8px;
+	border-radius: 6px;
+}
+.back-btn:hover { background: rgba(0,0,0,0.04); }
+
+.details-container {
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	gap: 24px;
+	align-items: start;
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+}
+
+.details-container img {
+	width: auto;
+	height: auto;
+	border-radius: 8px;
+	object-fit: cover;
+}
+
+.details-info h2 {
+	margin: 0 0 8px 0;
+	font-size: 1.6rem;
+}
+
+.details-info p {
+	margin: 8px 0;
+	line-height: 1.45;
+	color: #333;
+}
+
+.details-info p strong {
+	color: #979292;
+	margin-right: 6px;
+}
+
+.details-info .genres {
+	margin-top: 8px;
+	color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 780px) {
+	.details-container {
+		grid-template-columns: 1fr;
+	}
+
+	.details-container img {
+		max-width: 360px;
+		margin: 0 auto;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.anime-details {
+		color: #e6edf3;
+	}
+	.details-container {
+		background: #040f1e;
+		box-shadow: none;
+	}
+	.details-info p {
+		color: #cbd5e1;
+	}
+	.anime-details a { color: #7dd3fc; }
+}
+
