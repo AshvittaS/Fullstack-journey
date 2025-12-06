@@ -212,12 +212,3 @@ This project is open source and available under the MIT License.
 Built with ❤️ as part of the Fullstack Journey
 
 ---
-
-**Note**: Add your actual screenshots by replacing the placeholder URLs above with your own images. You can take screenshots of:
-1. The home page showing trending anime
-2. Search results page
-3. Latest anime page
-4. Anime details page
-5. Mobile responsive view
-
-Save them in a `screenshots/` folder and update the image paths accordingly.
