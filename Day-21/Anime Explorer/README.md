@@ -2,7 +2,8 @@
 
 A modern, beautiful React-based web application for exploring and discovering anime. Built with a stunning dark theme featuring purple/indigo gradients and glassmorphism design effects.
 
-![Anime Explorer](https://via.placeholder.com/800x400/667eea/ffffff?text=Anime+Explorer)
+![Anime Explorer]<img width="1874" height="977" alt="image" src="https://github.com/user-attachments/assets/0ca66242-33cb-47e2-9087-3cb25fac37d4" />
+
 
 ## ✨ Features
 
@@ -49,24 +50,25 @@ A modern, beautiful React-based web application for exploring and discovering an
 ## 📸 Screenshots
 
 ### Home Page - Trending Anime
-![Home Page](https://via.placeholder.com/1200x600/1a1a2e/ffffff?text=Home+Page+-+Trending+Anime)
+![Home Page]<img width="1862" height="982" alt="image" src="https://github.com/user-attachments/assets/f387432c-9d63-4d8a-a751-db14510b90d5" />
+
 *Beautiful dark theme with gradient background showcasing trending anime cards*
 
 ### Search Results
-![Search Results](https://via.placeholder.com/1200x600/16213e/ffffff?text=Search+Results)
+![Search Results]<img width="1873" height="956" alt="image" src="https://github.com/user-attachments/assets/5bec9c9d-43f5-40dd-9c12-2b9ba324d0d3" />
+
 *Search functionality with filtered anime results displayed in a grid layout*
 
 ### Latest Anime Page
-![Latest Anime](https://via.placeholder.com/1200x600/0f3460/ffffff?text=Latest+Anime)
+![Latest Anime]<img width="1919" height="954" alt="image" src="https://github.com/user-attachments/assets/aebbfa4c-e5d3-47a4-b26b-87cc9f817227" />
+
 *Current season anime displayed with the same elegant design*
 
 ### Anime Details Page
-![Anime Details](https://via.placeholder.com/1200x600/667eea/ffffff?text=Anime+Details)
+![Anime Details]<img width="1829" height="969" alt="image" src="https://github.com/user-attachments/assets/7641a12d-8878-4460-b104-60d3f1c086db" />
+
 *Comprehensive anime information with expandable synopsis and beautiful card layout*
 
-### Mobile Responsive View
-![Mobile View](https://via.placeholder.com/400x800/764ba2/ffffff?text=Mobile+View)
-*Fully responsive design that adapts to mobile screens*
 
 ## 🛠️ Tech Stack
 
