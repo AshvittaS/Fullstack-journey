@@ -10,33 +10,44 @@
 .anime-details a {
 	display: inline-block;
 	margin-bottom: 16px;
-	color: #080808;
+	color: #ffffff;
 	text-decoration: none;
 	font-weight: 600;
+	transition: color 0.3s ease;
+}
+.anime-details a:hover {
+	color: #a78bfa;
 }
 
 .back-btn {
 	display: inline-block;
 	margin-bottom: 16px;
-	background: transparent;
-	border: none;
-	color: #080808;
+	background: rgba(102, 126, 234, 0.2);
+	border: 1px solid rgba(102, 126, 234, 0.4);
+	color: #ffffff;
 	font-weight: 700;
 	cursor: pointer;
-	padding: 6px 8px;
-	border-radius: 6px;
+	padding: 8px 16px;
+	border-radius: 8px;
+	transition: all 0.3s ease;
 }
-.back-btn:hover { background: rgba(0,0,0,0.04); }
+.back-btn:hover { 
+	background: rgba(102, 126, 234, 0.4);
+	border-color: rgba(102, 126, 234, 0.6);
+	transform: translateX(-3px);
+}
 
 .details-container {
 	display: grid;
 	grid-template-columns: 300px 1fr;
 	gap: 24px;
 	align-items: start;
-	background: #fff;
+	background: rgba(255, 255, 255, 0.05);
 	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
 }
 
 .details-container img {
@@ -44,27 +55,48 @@
 	height: auto;
 	border-radius: 8px;
 	object-fit: cover;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .details-info h2 {
 	margin: 0 0 8px 0;
 	font-size: 1.6rem;
+	color: #ffffff;
 }
 
 .details-info p {
 	margin: 8px 0;
 	line-height: 1.45;
-	color: #333;
+	color: #e0e0e0;
 }
 
 .details-info p strong {
-	color: #979292;
+	color: #a78bfa;
 	margin-right: 6px;
 }
 
 .details-info .genres {
 	margin-top: 8px;
-	color: #555;
+	color: #c0c0c0;
+}
+
+.read-more-btn {
+	display: inline-block;
+	margin-top: 8px;
+	background: rgba(167, 139, 250, 0.2);
+	border: 1px solid rgba(167, 139, 250, 0.4);
+	color: #a78bfa;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 6px 12px;
+	border-radius: 6px;
+	font-size: 0.9rem;
+	transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+	background: rgba(167, 139, 250, 0.35);
+	border-color: rgba(167, 139, 250, 0.6);
 }
 
 /* Responsive adjustments */
@@ -79,17 +111,5 @@
 	}
 }
 
-@media (prefers-color-scheme: dark) {
-	.anime-details {
-		color: #e6edf3;
-	}
-	.details-container {
-		background: #040f1e;
-		box-shadow: none;
-	}
-	.details-info p {
-		color: #cbd5e1;
-	}
-	.anime-details a { color: #7dd3fc; }
-}
+/* Dark theme is now the default, so these styles are already applied above */
 

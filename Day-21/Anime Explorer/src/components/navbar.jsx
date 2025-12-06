@@ -17,8 +17,8 @@ function Navbar() {
     <nav className='navbar'>
       <h1>AnimeExplorer</h1>
       <ul className='options'>
-        <li><Link to="/" style={{textDecoration:'none', color:'black'}}>Home</Link></li>
-        <li><Link to="/" style={{textDecoration:'none', color:'black'}}>Trend</Link></li>
+        <li><Link to="/" style={{textDecoration:'none', color:'#ffffff', fontWeight:'500'}}>Home</Link></li>
+        <li><Link to="/" style={{textDecoration:'none', color:'#ffffff', fontWeight:'500'}}>Trend</Link></li>
         <li>
           <form onSubmit={onSubmit}>
             <input
@@ -30,7 +30,7 @@ function Navbar() {
             />
           </form>
         </li>
-        <li><Link to="/latest" style={{textDecoration:'none', color:'black'}}>Latest</Link></li>
+        <li><Link to="/latest" style={{textDecoration:'none', color:'#ffffff', fontWeight:'500'}}>Latest</Link></li>
       </ul>
     </nav>
   );

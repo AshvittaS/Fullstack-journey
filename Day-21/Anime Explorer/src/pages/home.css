@@ -3,7 +3,21 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  padding: 20px;
 }
 body{
-    background-color: aquamarine;
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.home {
+  padding: 20px;
+}
+.home h2 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
