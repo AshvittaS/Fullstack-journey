@@ -1,0 +1,1 @@
+Exercise 1-Create a database for managing students, insert sample records, update them, delete entries, and query the data.
