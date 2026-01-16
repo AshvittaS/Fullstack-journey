@@ -64,10 +64,6 @@ A modern, beautiful React-based web application for exploring and discovering an
 ![Anime Details](https://via.placeholder.com/1200x600/667eea/ffffff?text=Anime+Details)
 *Comprehensive anime information with expandable synopsis and beautiful card layout*
 
-### Mobile Responsive View
-![Mobile View](https://via.placeholder.com/400x800/764ba2/ffffff?text=Mobile+View)
-*Fully responsive design that adapts to mobile screens*
-
 ## 🛠️ Tech Stack
 
 - **React 19** - Latest React with modern hooks
